@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Školní parlament ZŠ Korunovační</title>
+  <meta name="description" content="Stránka školního parlamentu ZŠ Korunovační ve stylu wiki: přehled, volby, vedení, dokumenty, odkazy." />
+
+  <style>
+    /* Wiki-ish, čisté, bez efektů */
+    :root{
+      --bg: #ffffff;
+      --text: #202122;
+      --muted: #54595d;
+      --border: #a2a9b1;
+      --soft: #eaecf0;
+      --link: #0645ad;
+      --link-visited: #0b0080;
+      --link-red: #ba0000;
+      --max: 1100px;
+    }
+
+    html, body{ height:100%; }
+    body{
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      line-height: 1.55;
+    }
+
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    a:visited{ color: var(--link-visited); }
+
+    .wrap{ width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    /* Horní lišta */
+    .top{
+      border-bottom: 1px solid var(--border);
+      background: #f8f9fa;
+    }
+    .top .wrap{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 240px;
+    }
+    .mark{
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      background: #fff;
+      display:grid;
+      place-items:center;
+      font-weight: 700;
+      color: var(--muted);
+      user-select:none;
+    }
+    .brand h1{
+      margin: 0;
+      font-size: 16px;
+      font-weight: 650;
+    }
+    .brand p{
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .topnav{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content:flex-end;
+    }
+    .topnav a{
+      font-size: 13px;
+      color: var(--link);
+    }
+
+    /* Layout */
+    main{ padding: 18px 0 40px; }
+    .layout{
+      display:grid;
+      grid-template-columns: 1fr 300px;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .layout{ grid-template-columns: 1fr; }
+    }
+
+    /* Obsah */
+    .content{
+      min-width: 0;
+    }
+
+    .page-title{
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 650;
+      border-bottom: 1px solid var(--soft);
+      padding-bottom: 10px;
+    }
+
+    .lead{
+      color: var(--text);
+      margin: 10px 0 14px;
+    }
+
+    .notice{
+      border: 1px solid var(--border);
+      background: #f8f9fa;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 12px 0;
+    }
+
+    /* Infobox */
+    .infobox{
+      border: 1px solid var(--border);
+      background: #f8f9fa;
+      padding: 10px;
+      font-size: 13px;
+    }
+    .infobox .ibox-title{
+      font-weight: 700;
+      text-align: center;
+      margin: 2px 0 8px;
+    }
+    .infobox table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .infobox th, .infobox td{
+      border-top: 1px solid var(--soft);
+      padding: 6px 6px;
+      vertical-align: top;
+    }
+    .infobox th{
+      text-align: left;
+      width: 42%;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* TOC */
+    .toc{
+      border: 1px solid var(--border);
+      background: #f8f9fa;
+      padding: 10px 12px;
+      font-size: 13px;
+      margin: 14px 0;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .toc .toc-title{
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .toc ol{
+      margin: 0;
+      padding-left: 18px;
+    }
+    .toc li{ margin: 2px 0; }
+
+    /* Sekce jako na wiki */
+    h2{
+      font-size: 20px;
+      margin: 22px 0 8px;
+      border-bottom: 1px solid var(--soft);
+      padding-bottom: 6px;
+    }
+    h3{
+      font-size: 16px;
+      margin: 16px 0 8px;
+    }
+
+    .meta{
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    /* Wiki tabulky */
+    .wikitable{
+      width: 100%;
+      border: 1px solid var(--border);
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 13px;
+      margin: 10px 0;
+    }
+    .wikitable th, .wikitable td{
+      border: 1px solid var(--soft);
+      padding: 7px 8px;
+      vertical-align: top;
+    }
+    .wikitable th{
+      background: #f8f9fa;
+      text-align: left;
+    }
+
+    /* “červené” odkazy jako na wiki (neexistuje stránka) */
+    a.missing{ color: var(--link-red); }
+    a.missing:visited{ color: var(--link-red); }
+
+    /* Rozbalovací blok pro předsedu */
+    .toggle{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: #f8f9fa;
+      padding: 6px 10px;
+      font-size: 13px;
+      cursor: pointer;
+      user-select:none;
+    }
+    .toggle:focus{ outline: 2px solid #36c; outline-offset: 2px; }
+
+    .panel{
+      border: 1px solid var(--soft);
+      padding: 10px 12px;
+      margin-top: 10px;
+      display: none;
+    }
+    .panel.open{ display:block; }
+
+    /* Reference / poznámky */
+    .refs{
+      font-size: 13px;
+    }
+    .refs ol{ margin: 8px 0 0; padding-left: 20px; }
+    .refs li{ margin: 6px 0; }
+
+    footer{
+      border-top: 1px solid var(--border);
+      background: #f8f9fa;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 12px 0;
+    }
+
+    /* lepší kotvy */
+    [id]{ scroll-margin-top: 70px; }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div class="wrap">
+      <div class="brand">
+        <img src="korunka_logo.png" alt="Logo ZŠ Korunovační" style="width:34px;height:34px;border:1px solid var(--border);background:#fff;object-fit:contain;" />
+        <div>
+          <h1>Školní parlament ZŠ Korunovační</h1>
+          <p>stránka ve stylu wiki (přehled • odkazy • dokumenty)</p>
+        </div>
+      </div>
+
+      <nav class="topnav" aria-label="Rychlé odkazy">
+        <a href="#Uvod">Úvod</a>
+        <a href="#Volby_2025">Volby 2025</a>
+        <a href="#Vedeni">Vedení</a>
+        <a href="#Dokumenty">Dokumenty</a>
+        <a href="#Galerie">Fotky</a>
+        <a href="#Kontakt">Kontakt</a>
+        <a href="#Reference">Reference</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="layout">
+
+      <article class="content">
+        <h1 class="page-title" id="Uvod">Školní parlament Základní školy Korunovační</h1>
+
+        <p class="lead">
+          <b>Školní parlament ZŠ Korunovační</b> je žákovský orgán, ve kterém se setkávají zástupci tříd,
+          řeší <a href="#Podnety">podněty žáků</a>, připravují <a href="#Akce">školní akce</a> a předávají informace mezi třídami a školou.
+          V listopadu 2025 proběhly <a href="#Volby_2025">volby vedení</a>.
+        </p>
+
+        <div class="notice">
+          <b>Poznámka:</b> Odkazy na PDF/fotky jsou zatím ukázkové. Až je dodáš, jen se přepíšou URL.
+        </div>
+
+        <nav class="toc" aria-label="Obsah" id="Obsah">
+          <div class="toc-title">Obsah</div>
+          <ol id="tocList">
+            <!-- naplní JS -->
+          </ol>
+        </nav>
+
+        <h2 id="Zakladni_informace">Základní informace</h2>
+        <table class="wikitable" aria-label="Základní informace o parlamentu">
+          <tr>
+            <th>Název</th>
+            <td>Školní parlament ZŠ Korunovační</td>
+          </tr>
+          <tr>
+            <th>Škola</th>
+            <td>Základní škola Korunovační</td>
+          </tr>
+          <tr>
+            <th>Koordinace</th>
+            <td>Mgr. Dagmar Heráňová (koordinátorka školního parlamentu)</td>
+          </tr>
+          <tr>
+            <th>Dokumenty</th>
+            <td><a href="#Dokumenty">Jednací řád</a>, <a href="#Zapisy">zápisy ze schůzí</a>, <a href="#Plan_akci">plán akcí</a></td>
+          </tr>
+        </table>
+
+        <h2 id="Volby_2025">Volby vedení (2025)</h2>
+        <p>
+          Hlasování na <a href="#Predseda">předsedu</a> proběhlo dne <b>18. 11. 2025</b>.
+          Zvolen byl <b>Oskar Kubíček</b> (<a href="#Trida_9A">9.A</a>) s podporou <b>15 členů parlamentu</b>.
+        </p>
+
+        <table class="wikitable" aria-label="Výsledky voleb">
+          <tr>
+            <th>Funkce</th>
+            <th>Zvolený</th>
+            <th>Třída</th>
+            <th>Datum</th>
+            <th>Poznámka</th>
+          </tr>
+          <tr>
+            <td>Předseda</td>
+            <td><a href="#Predseda">Oskar Kubíček</a></td>
+            <td><a href="#Trida_9A">9.A</a></td>
+            <td>18. 11. 2025</td>
+            <td>15 hlasů</td>
+          </tr>
+          <tr>
+            <td>Tiskový mluvčí + zapisovatel</td>
+            <td><a href="#Mluvci">Jiří Soukup</a></td>
+            <td><a href="#Trida_8A">8.A</a></td>
+            <td>18. 11. 2025</td>
+            <td>zvoleno na navazujícím hlasování</td>
+          </tr>
+        </table>
+
+        <h2 id="Vedeni">Vedení</h2>
+        <h3 id="Predseda">Předseda</h3>
+        <p>
+          <b>Oskar Kubíček</b> (<a href="#Trida_9A">9.A</a>) – předseda školního parlamentu.
+          (Zvolen 18. 11. 2025, 15 hlasů.)
+        </p>
+        <p>
+          <b>Podnět? Máte problém? Volejte předsedovi:</b>
+          <a href="mailto:z.kubosk@korunka.org">z.kubosk@korunka.org</a>
+          • <a href="tel:+420731721193">731 721 193</a>
+          <br />
+          <i>„Ne sliby, ale činy – Kubíček to zařídí.“</i>
+        </p>
+
+        <button class="toggle" id="chairToggle" type="button" aria-expanded="false" aria-controls="chairPanel">
+          ▸ Zobrazit/skrýt část „O předsedovi“
+        </button>
+        <div class="panel" id="chairPanel" role="region" aria-label="O předsedovi">
+          <p>
+            <b>Oskar Kubíček</b> zastává funkci předsedy školního parlamentu s cílem být předsedou <b>všech žáků</b> bez rozdílu.
+            Usiluje o otevřenou spolupráci s učiteli, aktivní komunikaci s vedením školy a vytváření prostoru,
+            kde se žáci <b>nebojí vyjádřit svůj názor</b>.
+          </p>
+          <p>
+            Součástí role předsedy je také <b>reprezentace školy navenek</b>, důstojné vystupování
+            a snaha převádět návrhy žáků do reálných činů.
+          </p>
+          <ul>
+            <li>předseda všech žáků, nejen členů parlamentu</li>
+            <li>spolupráce s učiteli a vedením školy</li>
+            <li>obhajoba názorů a potřeb žáků</li>
+            <li>reprezentace školy při akcích a vystoupeních</li>
+            <li>osobní volební program: <a href="https://kubicek-o.github.io/volebni_stranky/#/uvod" target="_blank" rel="noopener">volební stránky předsedy</a></li>
+          </ul>
+        </div>
+
+        <h3 id="Mluvci">Tiskový mluvčí a zapisovatel</h3>
+        <p>
+          <b>Jiří Soukup</b> (<a href="#Trida_8A">8.A</a>) – tiskový mluvčí a zapisovatel.
+        </p>
+
+        <h3 id="Koordinace">Koordinace</h3>
+        <p>
+          <b>Mgr. Dagmar Heráňová</b> – koordinátorka školního parlamentu.
+        </p>
+
+        <h2 id="Cinnost">Činnost</h2>
+        <h3 id="Podnety">Podněty a návrhy</h3>
+        <p>
+          Parlament sbírá podněty od žáků a řeší je na schůzích. Podnět lze poslat prostřednictvím
+          <a href="#Kontakt">kontaktu na předsedu</a> nebo přes zástupce třídy.
+          <b>Schránka podnětů neexistuje.</b>
+        </p>
+
+        <h3 id="Akce">Školní akce</h3>
+        <p>
+          Přehled akcí patří do <a href="#Plan_akci">plánu akcí</a>. Na každou akci lze udělat podstránku/sekci,
+          např. <a class="missing" href="#Den_vlidnosti">Den vlídnosti</a>, <a class="missing" href="#Ruzovy_den">Růžový den</a>,
+          <a class="missing" href="#Sbírka">sbírka</a> apod.
+        </p>
+
+        <h2 id="Dokumenty">Dokumenty a odkazy</h2>
+        <p>
+          Níže jsou důležité materiály. Odkazy zatím směřují na placeholdery – až budeš mít reálné URL nebo soubory,
+          jen je přepíšeme.
+        </p>
+
+        <h3 id="Program_predsedy">Program předsedy</h3>
+        <ul>
+          <li><a href="DOPLN_PROGRAM_PREDSADY.pdf" target="_blank" rel="noopener">Program předsedy (PDF)</a></li>
+          <li><a href="volebni-plakat.png" target="_blank" rel="noopener">Volební plakát (obrázek)</a></li>
+        </ul>
+
+        <h3 id="Zapisy">Zápisy ze schůzí</h3>
+        <ul>
+          <li><a href="DOPLN_ZAPISY.html" target="_blank" rel="noopener">Archiv zápisů (odkaz)</a></li>
+          <li><a class="missing" href="#Zapis_2025_11_18">Zápis: 18. 11. 2025</a></li>
+          <li><a class="missing" href="#Zapis_2025_12">Zápis: prosinec 2025</a></li>
+        </ul>
+
+        <h3 id="Jednaci_rad">Jednací řád</h3>
+        <ul>
+          <li><a href="jednaci_rad_skolniho_parlamentu.pdf" target="_blank" rel="noopener">Jednací řád školního parlamentu (PDF)</a></li>
+          <li><a href="dodatek_jednaci_rad.pdf" target="_blank" rel="noopener">Dodatek k jednacímu řádu (PDF)</a></li>
+          <li><a href="souhlas_jednaci_rad.pdf" target="_blank" rel="noopener">Souhlas k jednacímu řádu (PDF)</a></li>
+        </ul>
+
+        <h3 id="Plan_akci">Plán akcí</h3>
+        <ul>
+          <li><a href="DOPLN_PLAN_AKCI.pdf" target="_blank" rel="noopener">Plán akcí (PDF)</a></li>
+          <li><a class="missing" href="#Kalendar">Kalendář akcí</a></li>
+        </ul>
+
+        <h2 id="Galerie">Fotky</h2>
+        <p>
+          Galerie ve wiki stylu = obyčejný seznam odkazů (a případně mini náhledy). Zatím placeholder:
+        </p>
+        <ul>
+          <li><a class="missing" href="#Foto_schuze">Fotka: schůze parlamentu</a></li>
+          <li><a class="missing" href="#Foto_akce">Fotka: školní akce</a></li>
+          <li><a class="missing" href="#Foto_tym">Fotka: společná fotka týmu</a></li>
+        </ul>
+
+        <h2 id="Kontakt">Kontakt</h2>
+        <ul>
+          <li><b>Předseda:</b> <a href="#Predseda">Oskar Kubíček</a> – <a href="mailto:z.kubosk@korunka.org">z.kubosk@korunka.org</a>, <a href="tel:+420731721193">731 721 193</a></li>
+          <li><b>Podnět? Máte problém? Volejte předsedovi.</b> (Ne sliby, ale činy – Kubíček to zařídí.)</li>
+          <li>Koordinátorka: <a href="#Koordinace">Mgr. Dagmar Heráňová</a></li>
+          <li>Jak poslat podnět: <a href="#Podnety">Podněty a návrhy</a></li>
+        </ul>
+
+        <h2 id="Reference">Reference</h2>
+        <div class="refs">
+          <ol>
+            <li id="ref1">Výsledky hlasování školního parlamentu (18. 11. 2025) – interní záznam parlamentu.</li>
+            <li id="ref2">ZŠ Korunovační – interní informace školy (koordinace parlamentu).</li>
+          </ol>
+          <div class="meta">Poslední úprava: <span id="lastEdit"></span></div>
+        </div>
+      </article>
+
+      <aside>
+        <!-- Infobox osoby (wiki styl) -->
+        <div class="infobox" aria-label="Infobox osoby">
+          <div class="ibox-title">Oskar Kubíček</div>
+          <div style="text-align:center; margin: 6px 0 10px;">
+            <img src="predseda.png" alt="Oskar Kubíček" style="max-width:100%; height:auto; border:1px solid var(--border); background:#fff;" />
+            <div class="meta" style="margin-top:6px;">Předseda školního parlamentu (ZŠ Korunovační)</div>
+          </div>
+          <table>
+            <tr>
+              <th>Funkce</th>
+              <td><a href="#Predseda">Předseda školního parlamentu</a></td>
+            </tr>
+            <tr>
+              <th>Zvolen</th>
+              <td><a href="#Volby_2025">18. 11. 2025</a> (15 hlasů)</td>
+            </tr>
+            <tr>
+              <th>Třída</th>
+              <td><a href="#Trida_9A">9.A</a></td>
+            </tr>
+            <tr>
+              <th>Kontakt</th>
+              <td>
+                <div style="display:grid; gap:6px;">
+                  <div><a href="mailto:z.kubosk@korunka.org">z.kubosk@korunka.org</a></div>
+                  <div><a href="tel:+420731721193">731 721 193</a></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Hláška</th>
+              <td>„Ne sliby, ale činy – Kubíček to zařídí.“</td>
+            </tr>
+            <tr>
+              <tr>
+              <th>Volební stránky</th>
+              <td><a href="https://kubicek-o.github.io/volebni_stranky/#/uvod" target="_blank" rel="noopener">Volební stránky</a></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="notice" style="margin-top: 12px;">
+          <b>Podnět? Máte problém? Volejte předsedovi.</b><br>
+          Nejrychlejší je mail nebo telefon (viz infobox výše).
+        </div>
+
+        <!-- Skryté kotvy pro třídy, aby odkazy fungovaly -->
+        <div style="display:none;" aria-hidden="true">
+          <span id="Trida_9A"></span>
+          <span id="Trida_8A"></span>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Tento obsah je určen pro školní účely. • <a href="#Obsah">Obsah</a> • <a href="#Reference">Reference</a>
+    </div>
+  </footer>
+
+  <script>
+    // Poslední úprava (lokální)
+    const now = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    document.getElementById('lastEdit').textContent = `${pad(now.getDate())}. ${pad(now.getMonth()+1)}. ${now.getFullYear()}`;
+
+    // Wiki TOC: automaticky z H2
+    const toc = document.getElementById('tocList');
+    const h2s = Array.from(document.querySelectorAll('article.content h2'));
+    h2s.forEach((h2, i) => {
+      if(!h2.id) return;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${h2.id}`;
+      a.textContent = h2.textContent;
+      li.appendChild(a);
+      toc.appendChild(li);
+    });
+
+    // Rozbalení „O předsedovi“ (bez animací, wiki styl)
+    const btn = document.getElementById('chairToggle');
+    const panel = document.getElementById('chairPanel');
+    let open = false;
+    const render = () => {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.classList.toggle('open', open);
+      btn.textContent = (open ? '▾' : '▸') + ' Zobrazit/skrýt část „O předsedovi“';
+    };
+    btn.addEventListener('click', () => { open = !open; render(); });
+    render();
+  </script>
+</body>
+</html>
